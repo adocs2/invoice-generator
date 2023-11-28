@@ -1,6 +1,9 @@
+# config/routes.rb
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :users do
+    get '/sign_in', to: 'tokens#sign_in'
+    post '/generate_and_send_activation', to: 'tokens#generate_token_and_send_activation'
+    get '/activate_user', to: 'tokens#activate_user'
+    post '/login_with_token', to: 'tokens#login_with_token'
+  end
 end

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>InvoiceGenerator</title>
+    <title>Gerador de Invoices</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +10,40 @@
   </head>
 
   <body>
-    <%= yield %>
+    <!-- Add the following code to display flash messages at the top of your view -->
+    <% if flash[:success].present? %>
+      <div class="alert alert-success" role="alert">
+        <%= flash[:success] %>
+      </div>
+    <% end %>
+
+    <% if flash[:error].present? %>
+      <div class="alert alert-danger" role="alert">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+
+    <head>
+      <title>Gerador de Invoices</title>
+      <!-- Add a link to the Bootstrap CSS file -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    </head>
+
+    <div class="container mt-5">
+      <%= yield %>
+    </div>
+
+    <!-- Add a link to the Bootstrap JS and Popper.js files -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </body>
 </html>
+
+<script>
+  $(document).ready(function() {
+    setTimeout(function() {
+      $('.alert').alert('close');
+    }, 3000);
+  });
+</script>
