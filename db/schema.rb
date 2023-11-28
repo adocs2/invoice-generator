@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_27_050515) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_27_234710) do
   create_table "invoices", force: :cascade do |t|
     t.string "number"
     t.date "date"
@@ -29,6 +29,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_27_050515) do
     t.string "authentication_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "activation_token"
+    t.boolean "activated", default: false
+    t.index ["activation_token"], name: "index_users_on_activation_token", unique: true
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
   end

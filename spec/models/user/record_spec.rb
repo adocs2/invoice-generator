@@ -16,5 +16,6 @@ RSpec.describe User::Record, type: :model do
     it { is_expected.to validate_uniqueness_of(:email) }
     it { is_expected.to validate_presence_of(:authentication_token) }
     it { is_expected.to validate_uniqueness_of(:authentication_token) }
+    it { is_expected.to validate_uniqueness_of(:activation_token).allow_nil }
   end
 end
