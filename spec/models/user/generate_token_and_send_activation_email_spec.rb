@@ -6,6 +6,14 @@ RSpec.describe User::GenerateTokenAndSendActivationEmail do
   let(:email) { 'user@example.com' }
 
   describe '#call!' do
+    context 'when email is empty' do
+      it 'returns a failure' do
+        result = described_class.call(email: '')
+        expect(result).to be_failure
+        expect(result.type).to eq(:email_empty)
+      end
+    end
+
     context 'when user does not exist' do
       it 'creates a new user with a token and sends activation email' do
         expect(User::Repository).to receive(:find_user_by_email).with(email).and_return(nil)

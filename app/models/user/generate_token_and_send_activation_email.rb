@@ -9,8 +9,10 @@ module User
     }
 
     def call!
+      return Failure(:email_empty) if email.empty?
+
       find_or_create
-        .then { send_activation_email }
+        .then { |user| send_activation_email(user) }
         .then { Success(result: { message: 'Token gerado com sucesso. Verifique seu email para ativar.' }) }
     end
 
@@ -31,12 +33,14 @@ module User
         user = repository.create_user(email: email, authentication_token: generate_token, activation_token: generate_activation_token)
       else
         repository.change_user_token(user, generate_token, generate_activation_token)
+        user.reload
       end
 
       user
     end
 
-    def send_activation_email
+    def send_activation_email(user)
+      ::User::Mailer.with(user: user).activation_email.deliver_now
       Success(:email_sent)
     end
   end
