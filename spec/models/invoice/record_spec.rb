@@ -12,7 +12,7 @@ RSpec.describe Invoice::Record, type: :model do
   describe 'validations' do
     subject { build(:invoice) }
 
-    it { is_expected.to validate_uniqueness_of(:number).scoped_to(:user_id).case_insensitive }
+    it { is_expected.to validate_uniqueness_of(:number).scoped_to(:user_id) }
     it { is_expected.to validate_presence_of(:number) }
     it { is_expected.to validate_presence_of(:date) }
     it { is_expected.to validate_presence_of(:company) }

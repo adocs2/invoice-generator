@@ -26,6 +26,9 @@ gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+gem 'sassc'
+gem 'sass-rails'
+gem 'jquery-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -44,6 +47,7 @@ gem "bootsnap", require: false
 
 gem 'u-case', '~> 4.5', '>= 4.5.1'
 gem 'u-struct', '~> 1.1'
+gem 'wicked_pdf'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -73,6 +77,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  gem 'letter_opener', '~> 1.8', '>= 1.8.1'
+  gem 'wkhtmltopdf-binary'
 end
 
 group :test do

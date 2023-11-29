@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :invoice, class: '::Invoice::Record' do
     association :user
 
-    number { Faker::Invoice.unique.reference }
+    sequence(:number) { |n| n }
     date { Faker::Date.between(from: 1.year.ago, to: Date.today) }
     company { Faker::Company.name }
     billing_to { Faker::Company.name }

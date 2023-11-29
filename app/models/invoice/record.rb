@@ -5,7 +5,7 @@ module Invoice
     self.table_name = 'invoices'
     belongs_to :user, class_name: '::User::Record'
 
-    validates :number, uniqueness: { scope: :user_id, case_sensitive: true }
+    validates :number, uniqueness: { scope: :user_id }
     validates :number, presence: true
     validates :date, presence: true
     validates :company, presence: true

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_11_27_234710) do
   create_table "invoices", force: :cascade do |t|
-    t.string "number"
+    t.integer "number"
     t.date "date"
     t.text "company"
     t.text "billing_to"
