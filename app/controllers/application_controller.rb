@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @current_user ||= User::FindById.call(session[:user_id])
+    user_id = session[:user_id]
+    return nil unless user_id
+
+    result = User::FindById.call(id: user_id)
+    result.success? ? result[:user] : nil
   end
 end
