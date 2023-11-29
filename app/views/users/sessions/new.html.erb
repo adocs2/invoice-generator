@@ -1,6 +1,6 @@
 <%= form_tag(users_login_path, method: :post) do %>
   <div class="form-group">
-    <%= label_tag(:authentication_token, 'Authentication Token:') %>
+    <%= label_tag(:authentication_token, 'Token de autenticação: ') %>
     <%= text_field_tag(:authentication_token, nil, class: 'form-control') %>
   </div>
 
@@ -9,5 +9,4 @@
   </div>
 <% end %>
 
-<%# Link to the page for generating a new token %>
-<%= link_to 'Generate Token', users_generate_token_path %>
+<%= link_to 'Gerar Token', users_generate_token_path %>
