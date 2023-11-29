@@ -20,7 +20,7 @@ module Invoices
     end
 
     def show
-      result = Invoice::FindById.call(invoice_id: params[:id])
+      result = Invoice::FindById.call(invoice_id: params[:id], user_id: current_user.id)
 
       if result.success?
         @invoice = result[:invoice]

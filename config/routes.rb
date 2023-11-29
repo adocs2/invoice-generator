@@ -17,4 +17,18 @@ Rails.application.routes.draw do
   end
 
   resources :invoices, only: [:index, :new, :create, :show], module: :invoices
+
+  namespace :api do
+    namespace :v1 do
+      namespace :users do
+        post '/generate/token', to: 'tokens#generate_token_and_send_activation'
+        post '/active/token', to: 'tokens#activate_user'
+      end
+      namespace :invoices do
+        get '/', to: 'invoices#index'
+        get '/:id', to: 'invoices#show'
+        post '/create', to: 'invoices#create_and_send_email'
+      end
+    end
+  end
 end

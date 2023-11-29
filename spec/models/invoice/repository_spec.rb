@@ -28,15 +28,15 @@ RSpec.describe Invoice::Repository do
 
   describe '#find_invoice_by_id' do
     it 'finds an invoice by ID' do
-      invoice = create(:invoice)
+      invoice = create(:invoice, user_id: user.id)
 
-      result = described_class.find_invoice_by_id(invoice.id)
+      result = described_class.find_invoice_by_id(invoice.id, user.id)
 
       expect(result).to eq(invoice)
     end
 
     it 'returns nil if ID is nil' do
-      result = described_class.find_invoice_by_id(nil)
+      result = described_class.find_invoice_by_id(nil, user.id)
 
       expect(result).to be_nil
     end

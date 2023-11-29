@@ -21,8 +21,8 @@ module Invoice::Repository
     end
   end
 
-  def find_invoice_by_id(id)
-    find_invoice_by(id: id) if id
+  def find_invoice_by_id(invoice_id, user_id)
+    find_invoice_by({id: invoice_id, user_id: user_id}) if invoice_id && user_id
   end
 
   def find_invoices_by_user_id(user_id, options = {})
