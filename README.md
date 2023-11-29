@@ -125,4 +125,5 @@ Coverage report generated for RSpec to /home/adocs2/invoice_generator/coverage. 
 3. Explore the replacement of current screen creation tools with more modern technologies, such as React on Rails, to enhance efficiency and user experience.
 4. Use the Docker tool to facilitate application setup
 5. Separate more the use cases to make more specific and more easy to maintain
-6. Some refactors. `Make it work, Make it right, Make it even better!`
+6. Study the u-case gem more to use more features.
+7. Some refactors. `Make it work, Make it right, Make it even better!`
