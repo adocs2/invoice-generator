@@ -21,12 +21,13 @@ module Users
       result = User::ActivateToken.call(email: params[:email], activation_token: params[:activation_token])
 
       if result.success?
+        session[:user_id] = result[:user].id
         flash[:success] = 'Token ativado com sucesso.'
+        redirect_to invoices_path
       else
         flash[:error] = 'Erro ao ativar token.'
+        redirect_to root_path
       end
-
-      redirect_to root_path
     end
   end
 end

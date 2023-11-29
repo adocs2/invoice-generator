@@ -36,7 +36,7 @@ RSpec.describe Users::TokensController, type: :controller do
         post :activate_user, params: { email: user.email, activation_token: user.activation_token }
         expect(flash[:success]).to be_present
         expect(flash[:success]).to eq('Token ativado com sucesso.')
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(invoices_path)
       end
     end
 
