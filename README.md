@@ -4,6 +4,36 @@ This project is designed to generate invoices using Ruby 2.7.7 and Rails 7.0.8. 
 
 For more information, refer to the [blog post by serradura](https://serradura.github.io/pt-BR/blog/aprenda_bcdd_e_u-case/).
 
+With that in mind, the application has planned to be use-case centered. So the implementation is based on each use case. So i made the separtion of each context with your use case. For example, in my models i have the context of User and the Context of Invoice. Inside each folder i have a file for each use case to make then independent
+
+- app
+  - controllers
+    - api
+      - v1
+       - invoices
+       - tokens
+    - invoice
+    - tokens
+  - models
+    - invoices
+      - create_and_send_email
+      - find_by_id
+      - list_by_user_id
+      - mailer
+      - pdf_generator
+      - record
+      - repository
+    - users
+      - activate_token
+      - find_by_id
+      - generate_token_and_send_activation_token
+      - login_with_token
+      - mailer
+      - record
+      - repository
+
+This way, it is relatively simple to maintain, refactor, test or separate some use case for microservices.
+
 ## Getting Started
 
 To access the platform, enter your email in "generate token." You will receive an authentication token by email to log in to the platform or access the API.
