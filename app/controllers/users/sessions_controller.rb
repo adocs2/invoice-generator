@@ -10,7 +10,7 @@ module Users
 
       if result.success?
         session[:user_id] = result[:user].id
-        redirect_to root_path, notice: 'Logged in successfully'
+        redirect_to invoices_path, notice: 'Logged in successfully'
       else
         flash.now[:error] = 'Invalid token or user not activated'
         render :new

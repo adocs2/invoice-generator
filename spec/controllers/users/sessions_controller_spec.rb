@@ -17,7 +17,7 @@ RSpec.describe Users::SessionsController, type: :controller do
       it 'logs in the user and redirects to dashboard' do
         post :create, params: { authentication_token: user.authentication_token }
         expect(session[:user_id]).to eq(user.id)
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(invoices_path)
         expect(flash[:notice]).to eq('Logged in successfully')
       end
     end
@@ -34,7 +34,7 @@ RSpec.describe Users::SessionsController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'logs out the user and redirects to root' do
-      session[:user_id] = 1 # Assuming there is a user logged in
+      session[:user_id] = 1
       delete :destroy
       expect(session[:user_id]).to be_nil
       expect(response).to redirect_to(root_path)
