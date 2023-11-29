@@ -10,8 +10,8 @@ With that in mind, the application has planned to be use-case centered. So the i
   - controllers
     - api
       - v1
-       - invoices
-       - tokens
+        - invoices
+        - tokens
     - invoice
     - tokens
   - models
