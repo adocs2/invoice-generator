@@ -1,0 +1,50 @@
+<h1>Invoices</h1>
+
+<%= form_tag(invoices_path, method: :get, class: 'form-inline mb-3') do %>
+  <div class="form-group mr-2">
+    <%= label_tag(:number, 'Número: ') %>
+    <%= text_field_tag(:number, params[:number], class: 'form-control') %>
+  </div>
+
+  <div class="form-group mr-2">
+    <%= label_tag(:date, 'Data: ') %>
+    <%= date_field_tag(:date, params[:date], class: 'form-control') %>
+  </div>
+
+  <%= submit_tag('Filter', class: 'btn btn-primary') %>
+<% end %>
+
+<% if @invoices.present? %>
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th>Número</th>
+        <th>Data</th>
+        <th>Empresa</th>
+        <th>Cobrança para</th>
+        <th>Valor total</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @invoices.each do |invoice| %>
+        <tr>
+          <td><%= invoice.number %></td>
+          <td><%= invoice.date %></td>
+          <td><%= invoice.company %></td>
+          <td><%= invoice.billing_to %></td>
+          <td><%= invoice.total_amount %></td>
+          <td>
+            <%= link_to 'Ver', invoice_path(invoice) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Você ainda não possui Invoices.</p>
+<% end %>
+
+<%= link_to 'Nova Invoice', new_invoice_path, class: 'btn btn-success' %>
+<%= button_to 'Logout', users_logout_path, class: 'btn btn-danger float-right', method: :delete %>
+

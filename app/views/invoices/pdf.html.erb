@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8'>
+    <%= wicked_pdf_stylesheet_link_tag 'pdf' %>
+  </head>
+  <body>
+    <h1>Invoice</h1>
+    <p>Numero: <%= invoice.number %></p>
+    <p>Data: <%= invoice.date %></p>
+    <p>Empresa: <%= invoice.company %></p>
+    <p>Cobranca para: <%= invoice.billing_to %></p>
+    <p>Valor total: <%= invoice.total_amount %></p>
+
+  </body>
+</html>

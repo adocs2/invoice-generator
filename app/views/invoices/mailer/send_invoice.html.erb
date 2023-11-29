@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h1>Invoice Criado</h1>
+
+  <p>Olá,</p>
+
+  <p>Você gerou uma nova Invoice, clique no link para visualizar:</p>
+  <p><%= link_to 'View Invoice', invoice_url %></p>
+
+  <p>PDF para download:</p>
+  <p><%= link_to 'Download PDF', attachments['invoice.pdf'].url %></p>
+</body>
+</html>
