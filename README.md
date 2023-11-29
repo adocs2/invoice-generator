@@ -94,4 +94,4 @@ Coverage report generated for RSpec to /home/adocs2/invoice_generator/coverage. 
 2. Use another DB, now the project use sqlite to simplify the implementation
 3. Explore the replacement of current screen creation tools with more modern technologies, such as React on Rails, to enhance efficiency and user experience.
 4. Use the Docker tool to facilitate application setup
-5. Some refactors. Make it work, Make it right, Make it even better!
+5. Some refactors. `Make it work, Make it right, Make it even better!`
