@@ -1,6 +1,8 @@
 # Invoice Generator Project
 
-This project is designed to generate invoices using Ruby 2.7.7 and Rails 7.0.8. It follows the B/CDD (Behavior/Component-Driven Development) methodology and utilizes the u-case gem. For more information, refer to the [blog post by serradura](https://serradura.github.io/pt-BR/blog/aprenda_bcdd_e_u-case/).
+This project is designed to generate invoices using Ruby 2.7.7 and Rails 7.0.8. It follows the B/CDD (Business/Context Driven Development) methodology and utilizes the u-case gem.
+
+For more information, refer to the [blog post by serradura](https://serradura.github.io/pt-BR/blog/aprenda_bcdd_e_u-case/).
 
 ## Getting Started
 
@@ -92,3 +94,4 @@ Coverage report generated for RSpec to /home/adocs2/invoice_generator/coverage. 
 2. Use another DB, now the project use sqlite to simplify the implementation
 3. Explore the replacement of current screen creation tools with more modern technologies, such as React on Rails, to enhance efficiency and user experience.
 4. Use the Docker tool to facilitate application setup
+5. Some refactors. Make it work, Make it right, Make it even better!
