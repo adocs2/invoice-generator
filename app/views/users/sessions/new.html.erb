@@ -1,0 +1,13 @@
+<%= form_tag(users_login_path, method: :post) do %>
+  <div class="form-group">
+    <%= label_tag(:authentication_token, 'Authentication Token:') %>
+    <%= text_field_tag(:authentication_token, nil, class: 'form-control') %>
+  </div>
+
+  <div class="form-group">
+    <%= submit_tag('Log In', class: 'btn btn-primary') %>
+  </div>
+<% end %>
+
+<%# Link to the page for generating a new token %>
+<%= link_to 'Generate Token', users_generate_token_path %>

@@ -2,7 +2,7 @@
 
 module User
   class LoginWithToken < Micro::Case
-    attributes :token
+    attributes :authentication_token
     attribute :repository, default: User::Repository
 
     def call!
@@ -12,7 +12,7 @@ module User
     private
 
     def find_and_log_in_user
-      user = repository.find_user_by_authentication_token(token)
+      user = repository.find_user_by_authentication_token(authentication_token)
 
       return Failure(:user_not_found) unless user
       return Failure(:invalid_token) unless user.activated?

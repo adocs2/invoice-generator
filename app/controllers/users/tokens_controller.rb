@@ -2,8 +2,7 @@
 
 module Users
   class TokensController < ApplicationController
-    def sign_in
-      render('users/sign_in')
+    def generate_token
     end
 
     def generate_token_and_send_activation
@@ -15,7 +14,7 @@ module Users
         flash[:error] = 'Erro ao gerar token e enviar email.'
       end
 
-      redirect_to users_sign_in_path
+      redirect_to root_path
     end
 
     def activate_user
@@ -27,19 +26,7 @@ module Users
         flash[:error] = 'Erro ao ativar token.'
       end
 
-      redirect_to users_sign_in_path
-    end
-
-    def login_with_token
-      result = User::LoginWithToken.call(token: params[:token])
-
-      if result.success?
-        flash[:success] = 'Usuário logado com sucesso.'
-      else
-        flash[:error] = 'Erro ao logar com token.'
-      end
-
-      redirect_to users_sign_in_path
+      redirect_to root_path
     end
   end
 end
