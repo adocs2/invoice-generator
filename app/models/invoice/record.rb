@@ -11,5 +11,9 @@ module Invoice
     validates :company, presence: true
     validates :billing_to, presence: true
     validates :total_amount, presence: true
+
+    def to_param
+      id.to_s
+    end
   end
 end

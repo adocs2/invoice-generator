@@ -9,7 +9,7 @@
   <p>Olá,</p>
 
   <p>Você gerou uma nova Invoice, clique no link para visualizar:</p>
-  <p><%= link_to 'View Invoice', invoice_url %></p>
+  <p><%= link_to 'Ver Invoice', invoice_url(id: invoice.id) %></p>
 
   <p>PDF para download:</p>
   <p><%= link_to 'Download PDF', attachments['invoice.pdf'].url %></p>

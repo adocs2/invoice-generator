@@ -19,4 +19,11 @@ RSpec.describe Invoice::Record, type: :model do
     it { is_expected.to validate_presence_of(:billing_to) }
     it { is_expected.to validate_presence_of(:total_amount) }
   end
+
+  describe 'to_param' do
+    it 'returns the id as a string' do
+      invoice = create(:invoice)
+      expect(invoice.to_param).to eq(invoice.id.to_s)
+    end
+  end
 end
